@@ -21,4 +21,8 @@ function DataCard(props){
     );
 };
 
+DataCard.defaultProps = {
+	number: "Sin Información"
+}
+
 export default DataCard;

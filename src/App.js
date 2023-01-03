@@ -17,8 +17,7 @@ function App() {
           <PageHeading title="Dashboard"/>
           <DataCards />
           <div className="row">
-            <Latest></Latest>
-            <Latest></Latest>
+            <Latest title="Último producto añadido" image={process.env.PUBLIC_URL + '/product_dummy.svg'}/>
           </div>
         </div>
         </div>
