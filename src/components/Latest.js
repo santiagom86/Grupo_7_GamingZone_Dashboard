@@ -12,7 +12,6 @@ function Latest(props){
 						<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={props.image} alt="dummy"/>
 					</div>
 					<p>{props.productTitle}</p>
-					<a target="_blank" rel="nofollow" href="/">Ver detalle</a>
 				</div>
 			</div>
 	</div>
