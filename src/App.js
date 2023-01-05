@@ -39,10 +39,10 @@ function App() {
           <div className="row">
 			      <DataCard title="Cantidad de Productos" data={ !products ? 'Cargando...' : products.count } icon={ faGamepad }/>
 			      <DataCard title="Cantidad de Usuarios" data={ !users ? 'Cargando...' : users.count } icon={ faUsers }/>
-            <DataCard title="Último usuario creado" data={ !users ? 'Cargando...' : users.users[users.count - 1].username } icon={ faUser }/>
+            <DataCard title="Último usuario creado" data={ !users ? 'Cargando...' : users.users.length ? users.users[users.count - 1].username : 'No hay' } icon={ faUser }/>
 		      </div>
           <div className="row">
-            <Latest title="Último producto añadido" image={process.env.PUBLIC_URL + '/product_dummy.svg'} productTitle={ !products ? 'Cargando...' : products.products[products.count - 1].title }/>
+            <Latest title="Último producto añadido" image={process.env.PUBLIC_URL + '/product_dummy.svg'} productTitle={ !products ? 'Cargando...' : products.products.length ? [products.count - 1].title : 'No hay'}/>
 
             <div className="col-lg-6 mb-4">
               <div className="card shadow mb-4">
