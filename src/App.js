@@ -10,9 +10,11 @@ import { faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
+const URL_SITE = process.env.REACT_APP_URL_SITE;
+
 function App() {
-	const usersUrl = 'https://jsonplaceholder.typicode.com/users'
-	const productsUrl = 'https://jsonplaceholder.typicode.com/albums'
+	const usersUrl = URL_SITE + '/api/users'
+	const productsUrl = URL_SITE + '/api/products'
 	const [users, setUsers] = useState()
 	const [products, setProducts] = useState()
 	const fetchApi = async () => {
@@ -35,12 +37,12 @@ function App() {
         <div className="container-fluid">
           <PageHeading title="Dashboard"/>
           <div className="row">
-			      <DataCard title="Cantidad de Productos" data={ !products ? 'Cargando...' : products.length } icon={ faGamepad }/>
-			      <DataCard title="Cantidad de Usuarios" data={ !users ? 'Cargando...' : users.length } icon={ faUsers }/>
-            <DataCard title="Último usuario creado" data={ !users ? 'Cargando...' : users[users.length - 1].name } icon={ faUser }/>
+			      <DataCard title="Cantidad de Productos" data={ !products ? 'Cargando...' : products.count } icon={ faGamepad }/>
+			      <DataCard title="Cantidad de Usuarios" data={ !users ? 'Cargando...' : users.count } icon={ faUsers }/>
+            <DataCard title="Último usuario creado" data={ !users ? 'Cargando...' : users.users[users.count - 1].username } icon={ faUser }/>
 		      </div>
           <div className="row">
-            <Latest title="Último producto añadido" image={process.env.PUBLIC_URL + '/product_dummy.svg'} productTitle={ !products ? 'Cargando...' : products[products.length - 1].title }/>
+            <Latest title="Último producto añadido" image={process.env.PUBLIC_URL + '/product_dummy.svg'} productTitle={ !products ? 'Cargando...' : products.products[products.count - 1].title }/>
 
             <div className="col-lg-6 mb-4">
               <div className="card shadow mb-4">
@@ -49,7 +51,9 @@ function App() {
                 </div>
                 <div className="card-body">
                   <ul>
-                    { !products ? 'Cargando...' : products.map((product, index) => {return <li>{product.title}</li>})}
+                    { !products ? 'Cargando...' : products.products.map((product, index) => {
+                      return <li key={index}><a target="_blank" href={URL_SITE + "/products/" + product.id}>{product.title}</a></li>
+                    })}
                   </ul>
                 </div>
               </div>
