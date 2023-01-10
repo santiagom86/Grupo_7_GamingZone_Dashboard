@@ -43,7 +43,7 @@ function App() {
             <DataCard title="Último usuario creado" data={ !users ? 'Cargando...' : users.users.length ? users.users[users.count - 1].username : 'No hay' } icon={ faUser }/>
 		      </div>
           <div className="row">
-            <Latest title="Último producto añadido" image={ !products ? 'Cargando...' : products.products.length ? imagesUrl + products.products[products.count - 1].primary_image_src : 'No hay'} productTitle={ !products ? 'Cargando...' : products.products.length ? products.products[products.count - 1].title : 'No hay'}/>
+            <Latest title="Último producto añadido" image={ !products ? process.env.PUBLIC_URL + '/product_dummy.svg' : products.products.length ? imagesUrl + products.products[products.count - 1].primary_image_src : 'No hay'} productTitle={ !products ? 'Cargando...' : products.products.length ? products.products[products.count - 1].title : 'No hay'}/>
 
             <div className="col-lg-6 mb-4">
               <div className="card shadow mb-4">
